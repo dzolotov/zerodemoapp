@@ -1,0 +1,16 @@
+apiVersion: flywaydb.io/v1alpha1
+kind: FlywayMigration
+metadata:
+  name: migrate-db
+  namespace: myapp
+spec:
+  image: dmitriizolotov/demoapp:migrate1
+  database:
+    host: postgresql
+    port: 5432
+    name: test
+    user: user
+    passwordSecretRef:
+      name: db-secret
+      key: password
+
